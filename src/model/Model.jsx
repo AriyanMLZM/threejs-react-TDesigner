@@ -14,9 +14,7 @@ const Model = ({ props }) => {
       }}
     >
       <Suspense fallback={null}>
-        <ambientLight />
-        <directionalLight position={[0, 0, 10]} />
-        <directionalLight position={[0, 0, -10]} />
+        <hemisphereLight groundColor={'#111'} intensity={0.01}/>
         <Tshirt props={props} />
         <OrbitControls
           target={[0, props.isMobile ? 0.8 : 0.4, 0]}
