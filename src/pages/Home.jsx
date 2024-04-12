@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { Model } from '../model'
-import { Tab1, Tab2 } from '../containers'
+import { Tab1, Tab2, Header } from '../containers'
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -18,10 +18,11 @@ const Home = () => {
   window.addEventListener('resize', checkScreen)
 
   return (
-    <main className='h-screen overflow-hidden bg-[#eae6e0]'>
+    <main className='h-screen overflow-hidden bg-center bg-main-img'>
       <section className='h-full'>
         <Model props={{isMobile}} />
       </section>
+      <Header />
       <Tab1 />
       <Tab2 />
     </main>

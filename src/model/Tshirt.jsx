@@ -7,7 +7,7 @@ import modelGltf from '../assets/3d/tshirt.glb'
 const Tshirt = ({props}) => {
   const { nodes, materials } = useGLTF(modelGltf)
   return (
-    <group scale={props.isMobile ? 5.5 : 8} dispose={null}>
+    <group scale={props.isMobile ? 6 : 9} dispose={null}>
       {/* <mesh
         castShadow
         receiveShadow
@@ -21,7 +21,7 @@ const Tshirt = ({props}) => {
         name='tshirt'
         geometry={nodes.tshirt.geometry}
         material={materials.color}
-        position={[0, props.isMobile ? 0.3 : 0.15, 0]}
+        position={[0, props.isMobile ? 0.3 : 0.1, 0]}
       />
     </group>
   )
