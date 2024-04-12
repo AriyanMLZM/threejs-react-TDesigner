@@ -3,16 +3,17 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls  } from '@react-three/drei'
 
 import { Tshirt } from './'
-import { AmbientLight } from 'three'
 
-const Model = () => {
+const Model = ({props}) => {
   return (
-    <Canvas shadows>
+    <Canvas shadows camera={{
+      fov: 25, position:[0, 5, 20]
+    }}>
       <Suspense fallback={null}>
         <ambientLight />
         <directionalLight position={[0, 0, 10]} />
         <directionalLight position={[0, 0, -10]} />
-        <Tshirt />
+        <Tshirt props={props}/>
         <OrbitControls />
       </Suspense>
     </Canvas>

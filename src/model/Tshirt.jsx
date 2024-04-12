@@ -4,10 +4,10 @@ import { useGLTF } from '@react-three/drei'
 import modelGltf from '../assets/3d/tshirt.glb'
 // import modelGltf from '../assets/3d/shirt_baked.glb'
 
-const Tshirt = () => {
+const Tshirt = ({props}) => {
   const { nodes, materials } = useGLTF(modelGltf)
   return (
-    <group scale={10} dispose={null}>
+    <group scale={props.isMobile ? 5.5 : 8} dispose={null}>
       {/* <mesh
         castShadow
         receiveShadow
@@ -21,6 +21,7 @@ const Tshirt = () => {
         name='tshirt'
         geometry={nodes.tshirt.geometry}
         material={materials.color}
+        position={[0, props.isMobile ? 0.3 : 0.15, 0]}
       />
     </group>
   )
