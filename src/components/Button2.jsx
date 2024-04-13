@@ -12,7 +12,7 @@ const Button = ({ props, funcs }) => {
           : '',
       }}
       onClick={() => {
-        funcs.changeTab(props.ind)
+        funcs.handleClick(props.ind)
       }}
     >
       <img
