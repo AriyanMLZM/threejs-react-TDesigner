@@ -9,7 +9,7 @@ const Home = () => {
   const [isLogo, setIsLogo] = useState(true)
   const [isFull, setIsFull] = useState(false)
   const [logo, setLogo] = useState('./logo.png')
-  const [full, setFull] = useState('./full.png')
+  const [full, setFull] = useState('./full.jpg')
 
   const handleLogo = () => {
     setIsLogo(!isLogo)

@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import { useGLTF, useTexture, Decal } from '@react-three/drei'
+import * as THREE from 'three'
 
 import modelGltf from '../assets/3d/tshirt.glb'
 // import modelGltf from '../assets/3d/shirt_baked.glb'
@@ -7,8 +8,17 @@ import modelGltf from '../assets/3d/tshirt.glb'
 const Tshirt = ({ props }) => {
   const { nodes, materials } = useGLTF(modelGltf)
 
+  // const ref = useRef()
+
   const logoTex = useTexture(props.logo)
   const fullTex = useTexture(props.full)
+
+  fullTex.colorSpace = THREE.SRGBColorSpace
+  logoTex.colorSpace = THREE.SRGBColorSpace
+
+  // useLayoutEffect(() => {
+  //   if (props.isFull) ref.current.needsUpdate = true
+  // }, [fullTex, props.isFull])
 
   useEffect(() => {
     if (props.color.r < 5 && props.color.g < 5 && props.color.b < 5) {
@@ -45,16 +55,19 @@ const Tshirt = ({ props }) => {
             position={[0, 0, 0]}
             rotation={[0, 0, 0]}
             scale={1}
-            map={fullTex}
-            depthTest={true}
-            depthWrite={true}
-          />
+          >
+            <meshBasicMaterial
+              // ref={ref}
+              map={fullTex}
+              // onUpdate={(self) => (self.needsUpdate = true)}
+            />
+          </Decal>
         )}
         {props.isLogo && (
           <Decal
-            position={[0, 0.06, 0.15]}
+            position={[0.075, 0.08, 0.15]}
             rotation={[0, 0, 0]}
-            scale={0.15}
+            scale={0.1}
             map={logoTex}
             depthTest={false}
             depthWrite={true}
