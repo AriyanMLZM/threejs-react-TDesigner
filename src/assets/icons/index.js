@@ -4,5 +4,6 @@ import save from './save.png'
 import bot from './bot.png'
 import file from './file.png'
 import colors from './colors.png'
+import close from './close.png'
 
-export { full, logo, save, bot, file, colors }
+export { full, logo, save, bot, file, colors, close }

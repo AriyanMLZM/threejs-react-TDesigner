@@ -6,13 +6,19 @@ import modelGltf from '../assets/3d/tshirt.glb'
 
 const Tshirt = ({ props }) => {
   const { nodes, materials } = useGLTF(modelGltf)
-  
+
   useEffect(() => {
-    materials.color.color.r = props.color.r
-    materials.color.color.g = props.color.g
-    materials.color.color.b = props.color.b
+    if (props.color.r < 5 && props.color.g < 5 && props.color.b < 5) {
+      materials.color.color.r = 5
+      materials.color.color.g = 5
+      materials.color.color.b = 5
+    } else {
+      materials.color.color.r = props.color.r
+      materials.color.color.g = props.color.g
+      materials.color.color.b = props.color.b
+    }
   }, [props.color])
-  
+
   return (
     <group scale={props.isMobile ? 6 : 9} dispose={null}>
       {/* <mesh
