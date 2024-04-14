@@ -26,7 +26,7 @@ const Tab2 = ({ props }) => {
       </section>
       {tab != 0 && <section className="absolute bg-[#111] rounded md:top-[50%] top-[70%] left-[90px] translate-y-[-50%] ">
         <div className='flex justify-end'>
-          <button type='button' className='w-[30px] p-[6px]' onClick={() => changeTab(0)}>
+          <button type='button' className='w-[30px] h-[30px] p-[6px]' onClick={() => changeTab(0)}>
             <img src={close} alt="close" />
           </button>
         </div>

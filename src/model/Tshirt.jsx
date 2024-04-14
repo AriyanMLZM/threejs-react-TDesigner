@@ -32,6 +32,27 @@ const Tshirt = ({ props }) => {
     }
   }, [props.color])
 
+  const genP = () => {
+    switch (props.logoP) {
+      case 0:
+        return -0.075
+      case 1:
+        return 0
+      case 2:
+        return 0.075
+    }
+  }
+  const genS = () => {
+    switch (props.logoS) {
+      case 0:
+        return 0.09
+      case 1:
+        return 0.12
+      case 2:
+        return 0.17
+    }
+  }
+
   return (
     <group scale={props.isMobile ? 6 : 9}>
       {/* <mesh
@@ -65,9 +86,9 @@ const Tshirt = ({ props }) => {
         )}
         {props.isLogo && (
           <Decal
-            position={[0.075, 0.08, 0.15]}
+            position={[genP(), 0.08, 0.15]}
             rotation={[0, 0, 0]}
-            scale={0.1}
+            scale={genS()}
             map={logoTex}
             depthTest={false}
             depthWrite={true}
