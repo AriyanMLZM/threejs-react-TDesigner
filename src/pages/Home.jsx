@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Model } from '../model'
 import { Tab1, Tab2, Tab3, Header } from '../containers'
+import { reader } from '../helper'
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -12,6 +13,14 @@ const Home = () => {
   const [logoP, setLogoP] = useState(2)
   const [logo, setLogo] = useState('./logo.png')
   const [full, setFull] = useState('./full.jpg')
+  const [file, setFile] = useState(null)
+  const [img, setImg] = useState(null)
+
+  useEffect(() => {
+    if (file) {
+      reader(file).then((result) => setImg(result))
+    }
+  }, [file])
 
   const handleLogo = () => {
     setIsLogo(!isLogo)
@@ -45,11 +54,13 @@ const Home = () => {
   return (
     <main className="h-screen overflow-hidden bg-center bg-main-img">
       <section className="h-full">
-        <Model props={{ isMobile, color, logo, isLogo, full, isFull, logoP, logoS }} />
+        <Model
+          props={{ isMobile, color, logo, isLogo, full, isFull, logoP, logoS }}
+        />
       </section>
       <Header props={{ color }} />
       <Tab1 props={{ color, handleLogo, handleFull, isLogo, isFull }} />
-      <Tab2 props={{ changeColor, color }} />
+      <Tab2 props={{ changeColor, color, setFile, file, img }} />
       <Tab3 props={{ color, logoS, logoP, handleLogoP, handleLogoS }} />
     </main>
   )

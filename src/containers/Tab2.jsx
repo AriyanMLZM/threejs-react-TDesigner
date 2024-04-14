@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { colors, file, bot } from '../assets/icons'
-import { Button, ColorPicker } from '../components'
+import { Button, ColorPicker, FilePicker } from '../components'
 import { close } from '../assets/icons'
 
 const Tab2 = ({ props }) => {
@@ -24,13 +24,14 @@ const Tab2 = ({ props }) => {
         <Button props={{ img: file, active: tab === 2 ? true : false, color: props.color, ind: 2 }} funcs={{changeTab}}/>
         <Button props={{ img: bot, active: tab === 3 ? true : false, color: props.color, ind: 3 }} funcs={{changeTab}}/>
       </section>
-      {tab != 0 && <section className="absolute bg-[#111] rounded md:top-[50%] top-[70%] left-[90px] translate-y-[-50%] ">
+      {tab != 0 && <section className="w-[220px] h-[300px] absolute bg-[#111] rounded md:top-[50%] top-[70%] left-[90px] translate-y-[-50%] ">
         <div className='flex justify-end'>
           <button type='button' className='w-[30px] h-[30px] p-[6px]' onClick={() => changeTab(0)}>
-            <img src={close} alt="close" />
+            <img src={close} alt="close" className='select-none' />
           </button>
         </div>
         {tab === 1 && <ColorPicker props={props} />}
+        {tab === 2 && <FilePicker props={props} />}
       </section>}
     </>
   )

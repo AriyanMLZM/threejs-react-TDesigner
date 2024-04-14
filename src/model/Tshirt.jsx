@@ -90,7 +90,7 @@ const Tshirt = ({ props }) => {
             rotation={[0, 0, 0]}
             scale={genS()}
             map={logoTex}
-            depthTest={false}
+            depthTest={true}
             depthWrite={true}
           />
         )}
