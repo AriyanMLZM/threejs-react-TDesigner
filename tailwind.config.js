@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "main-img": "url('./src/assets/imgs/bg.png')"
+        "main-img": "url('/bg.png')"
       }
     },
   },
