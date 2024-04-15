@@ -60,7 +60,9 @@ const Home = () => {
       </section>
       <Header props={{ color }} />
       <Tab1 props={{ color, handleLogo, handleFull, isLogo, isFull }} />
-      <Tab2 props={{ changeColor, color, setFile, file, img }} />
+      <Tab2
+        props={{ changeColor, color, setFile, file, img, setLogo, setFull }}
+      />
       <Tab3 props={{ color, logoS, logoP, handleLogoP, handleLogoS }} />
     </main>
   )

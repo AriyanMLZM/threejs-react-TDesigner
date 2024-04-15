@@ -2,6 +2,7 @@ import React from 'react'
 
 import { logo, full, save } from '../assets/icons'
 import { Button2 } from '../components'
+import { canvasDownloader } from '../helper'
 
 const Tab1 = ({ props }) => {
   const handleClick = (ind) => {
@@ -11,6 +12,9 @@ const Tab1 = ({ props }) => {
         break
       case 2:
         props.handleFull()
+        break
+      case 3:
+        canvasDownloader()
         break
     }
   }

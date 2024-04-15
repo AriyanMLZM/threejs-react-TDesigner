@@ -8,6 +8,7 @@ const Model = ({ props }) => {
   return (
     <Canvas
       shadows
+      gl={{ preserveDrawingBuffer: true }}
       camera={{
         fov: 25,
         position: [0, 5, 20],

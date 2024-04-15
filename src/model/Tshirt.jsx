@@ -1,24 +1,17 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useGLTF, useTexture, Decal } from '@react-three/drei'
 import * as THREE from 'three'
 
 import modelGltf from '../assets/3d/tshirt.glb'
-// import modelGltf from '../assets/3d/shirt_baked.glb'
 
 const Tshirt = ({ props }) => {
   const { nodes, materials } = useGLTF(modelGltf)
-
-  // const ref = useRef()
 
   const logoTex = useTexture(props.logo)
   const fullTex = useTexture(props.full)
 
   fullTex.colorSpace = THREE.SRGBColorSpace
   logoTex.colorSpace = THREE.SRGBColorSpace
-
-  // useLayoutEffect(() => {
-  //   if (props.isFull) ref.current.needsUpdate = true
-  // }, [fullTex, props.isFull])
 
   useEffect(() => {
     if (props.color.r < 5 && props.color.g < 5 && props.color.b < 5) {
@@ -55,13 +48,6 @@ const Tshirt = ({ props }) => {
 
   return (
     <group scale={props.isMobile ? 6 : 9}>
-      {/* <mesh
-        castShadow
-        receiveShadow
-        name='tshirt'
-        geometry={nodes.T_Shirt_male.geometry}
-        material={materials.lambert1}
-      /> */}
       <mesh
         castShadow
         receiveShadow
@@ -72,16 +58,8 @@ const Tshirt = ({ props }) => {
         dispose={null}
       >
         {props.isFull && (
-          <Decal
-            position={[0, 0, 0]}
-            rotation={[0, 0, 0]}
-            scale={1}
-          >
-            <meshBasicMaterial
-              // ref={ref}
-              map={fullTex}
-              // onUpdate={(self) => (self.needsUpdate = true)}
-            />
+          <Decal position={[0, 0, 0]} rotation={[0, 0, 0]} scale={1}>
+            <meshBasicMaterial map={fullTex} />
           </Decal>
         )}
         {props.isLogo && (

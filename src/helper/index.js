@@ -1,3 +1,4 @@
 import reader from './fileReader'
+import canvasDownloader from './canvasDownloader'
 
-export { reader }
+export { reader, canvasDownloader }
