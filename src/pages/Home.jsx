@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
+import { useGSAP } from '@gsap/react'
 
 import { Model } from '../model'
 import { Tab1, Tab2, Tab3, Header } from '../containers'
-import { reader } from '../helper'
+import { reader, doGsap } from '../helper'
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false)
@@ -15,6 +16,8 @@ const Home = () => {
   const [full, setFull] = useState('./full.jpg')
   const [file, setFile] = useState(null)
   const [img, setImg] = useState(null)
+
+  const tref = useRef()
 
   useEffect(() => {
     if (file) {
@@ -44,6 +47,10 @@ const Home = () => {
     if (window.innerWidth < 768) setIsMobile(true)
   }, [])
 
+  useGSAP(() => {
+    doGsap(tref)
+  })
+
   const checkScreen = () => {
     if (window.innerWidth < 768) setIsMobile(true)
     else setIsMobile(false)
@@ -53,7 +60,7 @@ const Home = () => {
 
   return (
     <main className="h-screen overflow-hidden bg-center bg-main-img">
-      <section className="h-full">
+      <section ref={tref} className="h-full">
         <Model
           props={{ isMobile, color, logo, isLogo, full, isFull, logoP, logoS }}
         />
