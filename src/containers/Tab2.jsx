@@ -49,7 +49,7 @@ const Tab2 = ({ props }) => {
         />
       </section>
       {tab != 0 && (
-        <section className="w-[220px] h-[300px] absolute bg-[#111] rounded md:top-[50%] top-[70%] left-[90px] translate-y-[-50%] ">
+        <section className="w-[220px] h-[330px] absolute bg-[#111] rounded md:top-[50%] top-[65%] left-[90px] translate-y-[-50%] ">
           <div className="flex justify-end">
             <button
               type="button"

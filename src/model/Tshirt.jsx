@@ -54,7 +54,7 @@ const Tshirt = ({ props }) => {
         name="tshirt"
         geometry={nodes.tshirt.geometry}
         material={materials.color}
-        position={[0, props.isMobile ? 0.3 : 0.1, 0]}
+        position={[0, props.isMobile ? 0.35 : 0.1, 0]}
         dispose={null}
       >
         {props.isFull && (

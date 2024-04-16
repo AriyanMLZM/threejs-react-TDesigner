@@ -33,7 +33,7 @@ const FilePicker = ({ props }) => {
         id="file-upload"
         type="file"
         accept="image/*"
-        className=" w-[90%] mt-4 text-[13px] file:hover:bg-gray-700 file:bg-[#111] file:border-white file:border-solid file:p-1 file:px-2 file:text-white file:rounded-full file:mr-2"
+        className=" w-[90%] text-[13px] file:hover:bg-gray-700 file:bg-[#111] file:border-white file:border-solid file:p-1 file:px-2 file:text-white file:rounded-full file:mr-2"
         style={{
           color: `rgb(${props.color.r}, ${props.color.g}, ${props.color.b})`,
         }}
@@ -42,7 +42,7 @@ const FilePicker = ({ props }) => {
           props.setFile(e.target.files[0])
         }}
       />
-      <div className="flex justify-center items-center h-[160px] w-full mt-2 mb-2 select-none">
+      <div className="flex justify-center overflow-hidden h-[210px] w-full mt-2 mb-2 select-none">
         {props.img && (
           <img
             width={'150px'}
