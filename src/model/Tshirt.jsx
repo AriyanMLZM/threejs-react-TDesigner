@@ -64,7 +64,7 @@ const Tshirt = ({ props }) => {
         )}
         {props.isLogo && (
           <Decal
-            position={[genP(), 0.08, 0.15]}
+            position={[genP(), 0.08, 0.13]}
             rotation={[0, 0, 0]}
             scale={genS()}
             map={logoTex}
