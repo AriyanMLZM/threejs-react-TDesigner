@@ -7,7 +7,7 @@ import { reader, doGsap } from '../helper'
 
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false)
-  const [color, setColor] = useState({ r: 223, g: 12, b: 12 })
+  const [color, setColor] = useState({ r: 19, g: 97, b: 189 })
   const [isLogo, setIsLogo] = useState(true)
   const [isFull, setIsFull] = useState(false)
   const [logoS, setLogoS] = useState(0)
