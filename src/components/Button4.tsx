@@ -1,26 +1,34 @@
-import React from 'react'
+import { Irgb } from '../types'
 
-const Button4 = ({ props }) => {
-  return (
-    <button
-      type="button"
-      style={{
-        background: props.active
-          ? `rgb(${props.color.r}, ${props.color.g}, ${props.color.b})`
-          : '',
-        borderColor: !props.active
-          ? `rgb(${props.color.r}, ${props.color.g}, ${props.color.b})`
-          : '',
-        borderWidth: !props.active ? `1px` : '',
-      }}
-      className={`text-white w-[100px] h-[32px] m-1 rounded-full ${
-        !props.active && 'md:hover:bg-gray-700'
-      }`}
-      onClick={() => props.handleClick(props.ind)}
-    >
-      {props.text}
-    </button>
-  )
+const Button4 = ({
+	color,
+	text,
+	ind,
+	active,
+	handleClick,
+}: {
+	color: Irgb
+	text: string
+	ind: number
+	active: boolean
+	handleClick: (ind: number) => void
+}) => {
+	return (
+		<button
+			type="button"
+			style={{
+				background: active ? `rgb(${color.r}, ${color.g}, ${color.b})` : '',
+				borderColor: !active ? `rgb(${color.r}, ${color.g}, ${color.b})` : '',
+				borderWidth: !active ? `1px` : '',
+			}}
+			className={`text-white w-[100px] h-[32px] m-1 rounded-full ${
+				!active && 'md:hover:bg-gray-700'
+			}`}
+			onClick={() => handleClick(ind)}
+		>
+			{text}
+		</button>
+	)
 }
 
 export default Button4
