@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button4 } from '../components'
+import { Button4 } from '.'
 
 const FilePicker = ({ props }) => {
   const [fileLogo, setFileLogo] = useState(false)
