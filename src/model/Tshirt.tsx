@@ -29,6 +29,10 @@ const Tshirt = ({
 	const logoTex = useTexture(logo)
 	const fullTex = useTexture(full)
 
+	useEffect(() => {
+		console.log("logo:", logo)
+	}, [logo])
+
 	fullTex.colorSpace = THREE.SRGBColorSpace
 	logoTex.colorSpace = THREE.SRGBColorSpace
 

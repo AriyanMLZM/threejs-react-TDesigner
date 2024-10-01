@@ -1,8 +1,15 @@
-import { Dispatch, useState } from 'react'
+import { Dispatch, useEffect, useState } from 'react'
 
-import { colors, file, bot, close } from '../assets/icons'
-import { Button, ColorPicker, FilePicker, AiPicker } from '../components'
+import { colors, file, bot, close, text } from '../assets/icons'
+import {
+	Button,
+	ColorPicker,
+	FilePicker,
+	AiPicker,
+	TextPicker,
+} from '../components'
 import { Irgb } from '../types'
+import { textConverter } from '../helper'
 
 const Tab2 = ({
 	changeColor,
@@ -20,6 +27,18 @@ const Tab2 = ({
 	setFull: Dispatch<string>
 }) => {
 	const [tab, setTab] = useState(0)
+	const [textColor, setTextColor] = useState('#fff')
+	const [textLogo, setTextLogo] = useState('')
+	const [enLogo, setEnLogo] = useState(false)
+	const [enText, setEnText] = useState(false)
+	const [enFull, setEnFull] = useState(false)
+
+	useEffect(() => {
+		if (text != '' && enText) {
+			setEnLogo(false)
+			setLogo(textConverter(text, textColor))
+		}
+	}, [text])
 
 	const changeTab = (ind: number) => {
 		if (tab === ind) setTab(0)
@@ -32,7 +51,7 @@ const Tab2 = ({
 				style={{
 					borderColor: `rgb(${color.r}, ${color.g}, ${color.b})`,
 				}}
-				className="absolute select-none border-[2px] bg-[#000]/50 rounded-full flex flex-col items-center justify-around z-1 md:top-[50%] top-[77%] left-[15px] translate-y-[-50%] md:w-[70px] md:h-[220px] w-[60px] h-[210px]"
+				className="absolute select-none border-[2px] bg-[#000]/50 rounded-full flex flex-col items-center justify-around z-1 md:top-[50%] top-[77%] left-[15px] translate-y-[-50%] gap-[10px] py-[10px] px-[10px]"
 			>
 				<Button
 					img={colors}
@@ -49,10 +68,17 @@ const Tab2 = ({
 					changeTab={changeTab}
 				/>
 				<Button
-					img={bot}
+					img={text}
 					active={tab === 3 ? true : false}
 					color={color}
 					ind={3}
+					changeTab={changeTab}
+				/>
+				<Button
+					img={bot}
+					active={tab === 4 ? true : false}
+					color={color}
+					ind={4}
 					changeTab={changeTab}
 				/>
 			</section>
@@ -75,9 +101,24 @@ const Tab2 = ({
 							setFull={setFull}
 							setFile={setFile}
 							color={color}
+							enLogo={enLogo}
+							setEnLogo={setEnLogo}
+							enFull={enFull}
+							setEnFull={setEnFull}
 						/>
 					)}
-					{tab === 3 && <AiPicker />}
+					{tab === 3 && (
+						<TextPicker
+							textColor={textColor}
+							setTextColor={setTextColor}
+							setLogo={setLogo}
+							textLogo={textLogo}
+							setTextLogo={setTextLogo}
+							enText={enText}
+							setEnText={setEnText}
+						/>
+					)}
+					{tab === 4 && <AiPicker />}
 				</section>
 			)}
 		</>

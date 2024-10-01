@@ -1,4 +1,4 @@
-import { Dispatch, useState } from 'react'
+import { Dispatch } from 'react'
 
 import { Button4 } from '.'
 import { Irgb } from '../types'
@@ -9,35 +9,40 @@ const FilePicker = ({
 	setFull,
 	setFile,
 	color,
+	enLogo,
+	setEnLogo,
+	enFull,
+	setEnFull,
 }: {
 	img: string | null
 	setLogo: Dispatch<string>
 	setFull: Dispatch<string>
 	setFile: Dispatch<File>
 	color: Irgb
+	enLogo: boolean
+	setEnLogo: Dispatch<boolean>
+	enFull: boolean
+	setEnFull: Dispatch<boolean>
 }) => {
-	const [fileLogo, setFileLogo] = useState(false)
-	const [fileFull, setFileFull] = useState(false)
-
 	const handleClick = (ind: number) => {
 		if (img) {
 			switch (ind) {
 				case 1:
-					if (!fileLogo) setLogo(img)
+					if (!enLogo) setLogo(img)
 					else setLogo('./logo.png')
-					setFileLogo(!fileLogo)
+					setEnLogo(!enLogo)
 					break
 				case 2:
-					if (!fileFull) setFull(img)
+					if (!enFull) setFull(img)
 					else setFull('./full.jpg')
-					setFileFull(!fileFull)
+					setEnFull(!enFull)
 					break
 			}
 		}
 	}
 	const reset = () => {
-		setFileFull(false)
-		setFileLogo(false)
+		setEnFull(false)
+		setEnLogo(false)
 	}
 
 	return (
@@ -71,14 +76,14 @@ const FilePicker = ({
 					color={color}
 					text={'Logo'}
 					ind={1}
-					active={fileLogo}
+					active={enLogo}
 					handleClick={handleClick}
 				/>
 				<Button4
 					color={color}
 					text={'Full'}
 					ind={2}
-					active={fileFull}
+					active={enFull}
 					handleClick={handleClick}
 				/>
 			</div>
