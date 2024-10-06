@@ -34,11 +34,12 @@ const Tab2 = ({
 	const [enFull, setEnFull] = useState(false)
 
 	useEffect(() => {
-		if (text != '' && enText) {
+		console.log('textLogo', textLogo)
+		if (textLogo !== '' && enText) {
 			setEnLogo(false)
-			setLogo(textConverter(text, textColor))
+			setLogo(textConverter(textLogo, textColor))
 		}
-	}, [text])
+	}, [textLogo, enText])
 
 	const changeTab = (ind: number) => {
 		if (tab === ind) setTab(0)
