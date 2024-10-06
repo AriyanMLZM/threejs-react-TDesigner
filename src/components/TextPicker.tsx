@@ -64,6 +64,7 @@ const TextPicker = ({
 					handleClick={handleClick}
 				/>
 			</div>
+			<canvas id="text-canvas" style={{ display: 'none' }}></canvas>
 		</section>
 	)
 }
