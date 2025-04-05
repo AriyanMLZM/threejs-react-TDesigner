@@ -1,15 +1,8 @@
-import { Dispatch, useEffect, useState } from 'react'
+import { Dispatch, useState } from 'react'
 
-import { colors, file, bot, close, text } from '../assets/icons'
-import {
-	Button,
-	ColorPicker,
-	FilePicker,
-	AiPicker,
-	TextPicker,
-} from '../components'
+import { colors, file, bot, close } from '../assets/icons'
+import { Button, ColorPicker, FilePicker, AiPicker } from '../components'
 import { Irgb } from '../types'
-import { textConverter } from '../helper'
 
 const Tab2 = ({
 	changeColor,
@@ -27,19 +20,8 @@ const Tab2 = ({
 	setFull: Dispatch<string>
 }) => {
 	const [tab, setTab] = useState(0)
-	const [textColor, setTextColor] = useState('#fff')
-	const [textLogo, setTextLogo] = useState('')
 	const [enLogo, setEnLogo] = useState(false)
-	const [enText, setEnText] = useState(false)
 	const [enFull, setEnFull] = useState(false)
-
-	useEffect(() => {
-		console.log('textLogo', textLogo)
-		if (textLogo !== '' && enText) {
-			setEnLogo(false)
-			setLogo(textConverter(textLogo, textColor))
-		}
-	}, [textLogo, enText])
 
 	const changeTab = (ind: number) => {
 		if (tab === ind) setTab(0)
@@ -69,17 +51,10 @@ const Tab2 = ({
 					changeTab={changeTab}
 				/>
 				<Button
-					img={text}
+					img={bot}
 					active={tab === 3 ? true : false}
 					color={color}
 					ind={3}
-					changeTab={changeTab}
-				/>
-				<Button
-					img={bot}
-					active={tab === 4 ? true : false}
-					color={color}
-					ind={4}
 					changeTab={changeTab}
 				/>
 			</section>
@@ -108,18 +83,7 @@ const Tab2 = ({
 							setEnFull={setEnFull}
 						/>
 					)}
-					{tab === 3 && (
-						<TextPicker
-							textColor={textColor}
-							setTextColor={setTextColor}
-							setLogo={setLogo}
-							textLogo={textLogo}
-							setTextLogo={setTextLogo}
-							enText={enText}
-							setEnText={setEnText}
-						/>
-					)}
-					{tab === 4 && <AiPicker />}
+					{tab === 3 && <AiPicker />}
 				</section>
 			)}
 		</>
