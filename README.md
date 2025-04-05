@@ -27,9 +27,13 @@ Design your 3d T-shirt with your logo and texture.
   </tr>
   <tr align="center">
     <td>Vite</td>
+    <td></td>
+    <td></td>
   </tr>
   <tr align="center">
     <td><img src="https://i.postimg.cc/W1zX0WDB/vite.png" width="35px" /></td>
+    <td></td>
+    <td></td>
   </tr>
 </table>
 
