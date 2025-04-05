@@ -25,6 +25,12 @@ Design your 3d T-shirt with your logo and texture.
     <td><img  src="https://i.postimg.cc/7L2wxs9z/gsap.png" width="40px"/></td>
     <td><img  src="https://i.postimg.cc/RVSScTCr/blender.png" width="40px"/></td>
   </tr>
+  <tr align="center">
+    <td>Vite</td>
+  </tr>
+  <tr align="center">
+    <td><img src="https://i.postimg.cc/W1zX0WDB/vite.png" width="35px" /></td>
+  </tr>
 </table>
 
 ## Features
@@ -43,6 +49,7 @@ Design your 3d T-shirt with your logo and texture.
 - Using **Gsap** for some animations.
 - Using **Tailwindcss** for styling.
 - Using **React Colors** for implementing color picker.
+- Using **Vite** as project builder.
 
 ### Coming soon
 
